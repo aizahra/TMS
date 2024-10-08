@@ -1,7 +1,7 @@
 <%-- 
     Document   : viewhotel3
     Created on : 6 Apr, 2024, 12:37:49 PM
-    Author     : Sejal
+    Author     : Aimen
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
