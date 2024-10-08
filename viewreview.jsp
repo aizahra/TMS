@@ -1,7 +1,8 @@
 <%-- 
     Document   : viewreview
     Created on : 6 Apr, 2024, 2:08:02 AM
-    Author     : Sejal
+    Author     : Aimen
+
 --%>
 
 <%@page import="java.sql.*"%>
