@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <title>Send Email</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('admin.jpg'); 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+         h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Any Query ?</h1>
+        <h2>Use a Gmail id</h2>
+        <div>
+            <label for="sendername">Sender Name:</label>
+            <input type="text" id="sendername" required>
+        </div>
+        <div>
+            <label for="from">From(Email):</label>
+            <input type="text" id="from" required>
+        </div>
+        <div>
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" required>
+        </div>
+        <div>
+            <label for="Message">Message:</label>
+            <textarea id="Message" cols="40" rows="8" required></textarea>
+        </div>
+        <button onclick="sendMail();">Send</button>
+        <p class="info" id="info"></p>
+    </div>
+
+    <script>
+        function sendMail() {
+            emailjs.init("m4frsNO2l8j7hZ2vh");
+
+            var params = {
+                sendername: document.querySelector("#sendername").value,
+                from: document.querySelector("#from").value,
+                subject: document.querySelector("#subject").value,
+                message: document.querySelector("#Message").value,
+            };
+
+            var serviceID = "service_lcj9sp8";
+            var templateID = "template_qhjvfus";
+            emailjs.send(serviceID, templateID, params)
+            .then(res => {
+                document.getElementById("info").innerText = "Email sent successfully!";
+                document.getElementById("sendername").value = "";
+               document.getElementById("from").value = "";
+                document.getElementById("subject").value = "";
+                document.getElementById("Message").value = "";
+            })
+            .catch(error => {
+                document.getElementById("info").innerText = "Error sending email. Please try again later.";
+            });
+        }
+    </script>
+</body>
+</html>
+
