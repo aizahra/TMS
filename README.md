@@ -74,6 +74,7 @@ Welcome to the Travel Management System! This system aims to facilitate travel b
 
 ## Contributors
 
+-Aimen Zahra
 - Sejal
 
 ## Support
